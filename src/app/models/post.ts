@@ -5,14 +5,14 @@ export class Post {
   title: string;
   content: string;
   loveIts: number;
-  created_at: Date;
+  created_at: number;
 
   constructor(id : number,title: string, content: string, loveIts: number) {
     this.id = id;
     this.title = title;
     this.content = content;
     this.loveIts = loveIts;
-    this.created_at = new Date(formatDate(Date.now(), 'yyyy/MM/dd hh:mm', 'en-US'));
+    this.created_at = new Date(formatDate(Date.now(), 'yyyy/MM/dd hh:mm', 'en-US')).getTime();
   }
 }
 

@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import * as firebase from 'firebase';
 import DataSnapshot = firebase.database.DataSnapshot;
 import { reject, resolve } from 'q';
+import { formatDate } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -29,10 +30,14 @@ export class PostService {
     );
   }
 
-  savePost(newPost) {
+  savePost(newPost : Post) {
     var lastpostid = this.posts.length-1;
     var lastPost = this.posts[lastpostid];
-    newPost.id = lastPost.id+1;
+    if(!lastPost)
+      newPost.id =0;
+    else
+      newPost.id = lastPost.id+1;
+      
     this.posts.push(newPost);
     this.savePosts();
     this.emitPosts();
