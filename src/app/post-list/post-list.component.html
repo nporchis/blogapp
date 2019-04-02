@@ -1,0 +1,5 @@
+<div class="container">
+  <h1>Posts</h1>
+  <app-post-list-item *ngFor="let post of allPosts" [title]="post.title" [content]="post.content" [id]="post.id"
+    [created_at]="post.created_at" [loveIts]="post.loveIts"></app-post-list-item>
+</div>

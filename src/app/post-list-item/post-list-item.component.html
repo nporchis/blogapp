@@ -1,0 +1,20 @@
+<div style="padding: 20px;"
+  [ngClass]="{'list-group-item-danger' : loveIts < 0, 'list-group-item-success' : loveIts > 0}">
+
+  <div class="row">
+    <div class="col-xs-6">
+      <h2 style="margin-top:0px">{{title}}</h2>
+    </div>
+    <div class="col-xs-6">
+      <p style="float:right;">{{created_at | date:'dd/MM/yyyy hh:mm'}}</p>
+    </div>
+    <!-- <div class="col-xs-6">
+        <p style="float:right;">{{loveIts }}</p>
+      </div> -->
+  </div>
+
+  <p>{{content}}</p>
+  <button style="margin: 10px;" class="btn btn-success" (click)="loveIt()">Love It!</button>
+  <button style="margin: 10px;" class="btn btn-danger" (click)="dontLoveIt()">Dont Love It!</button>
+  <button style="margin: 10px;" class="btn btn-danger pull-right" (click)="onRemovePost(id)">Supprimer le post !</button>
+</div>
